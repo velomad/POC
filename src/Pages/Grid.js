@@ -7,8 +7,6 @@ const Grid = () => {
   return (
     <div>
       <div className="App ">
-        <Navbar />
-
         <div className="p-4 space-y-5">
           <div className="">
             <Breadcrum />

@@ -1,12 +1,10 @@
 import React from "react";
-import Grid from "./Pages/Grid";
-import Scheduler from "./Pages/Scheduler";
+import Routes from "./Routes";
 
 function App() {
   return (
     <div>
-      {/* <Grid /> */}
-      <Scheduler />
+      <Routes />
     </div>
   );
 }
