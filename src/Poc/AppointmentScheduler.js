@@ -9,6 +9,10 @@ import {
 import ContactPhone from "@material-ui/icons/ContactPhone";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { fade } from "@material-ui/core/styles/colorManipulator";
+import Radio from '@material-ui/core/Radio';
+import Button from '@material-ui/core/Button';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import './css/bootstrap.min.css'
 // import './css/font-awesome.css'
 // import './css/bootstrap-glyphicons.css'
@@ -148,6 +152,8 @@ const TextEditor = (props) => {
   return <AppointmentForm.TextEditor {...props} />;
 };
 
+
+
 const Content = withStyles(style, { name: "Content" })(
   ({ children, appointmentData, classes, ...restProps }) => (
     <AppointmentTooltip.Content
@@ -189,6 +195,26 @@ export default function Demo() {
   //   console.log(restProps);
   //   setVisibleForm(false);
   // };
+
+  const ExternalViewSwitcher = ({
+    currentViewName,
+    onChange,
+    style,
+  }) => (
+    <RadioGroup
+      aria-label="Views"
+      style={{ flexDirection: 'row' }}
+      name="views"
+      value={currentViewName}
+      onChange={onChange}
+      style={{marginLeft:"20px",flexDirection:"row"}}
+    >
+      <FormControlLabel value="Week" control={<Radio />} label="Week" l />
+      {/* <FormControlLabel value="Work Week" control={<Radio />} label="Work Week" /> */}
+      <FormControlLabel value="Month" control={<Radio />} label="Month" />
+    </RadioGroup>
+  );
+
   const Appointment = ({ children, style, ...restProps }) => (
     <Appointments.Appointment
       // onDoubleClick={() => disableAppointmentOnHoliday({ ...restProps })}
@@ -201,6 +227,10 @@ export default function Demo() {
       {children}
     </Appointments.Appointment>
   );
+
+  const currentViewNameChanges = (e) =>{
+    setCurrentViewName(e.target.value)
+  }
 
   const currentViewNameChange = (currentViewName) => {
     setCurrentViewName(currentViewName)
@@ -261,6 +291,13 @@ export default function Demo() {
 
     <div>
       <Paper elevation={3}>
+
+      <React.Fragment>
+        <ExternalViewSwitcher
+          
+          currentViewName={currentViewName}
+          onChange={currentViewNameChanges}
+        />
         <Scheduler
           data={data}
           height={560}
@@ -312,12 +349,15 @@ export default function Demo() {
           />
           <TodayButton />
           <AppointmentForm
+            // commandButtonComponent={OnSbumitComponent}
             basicLayoutComponent={BasicLayout}
             textEditorComponent={TextEditor} //Add new textbox
             messages={messages}
           />
         </Scheduler>
+      </React.Fragment>
       </Paper>
+
     </div>
     // </Container>
   );

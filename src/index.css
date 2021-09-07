@@ -44,7 +44,11 @@ body {
   background: rgb(34, 148, 241);
 }
 
-.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
+/* .MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
+  display: none;
+} */
+
+.MuiGrid-root.MuiGrid-container > label {
   display: none;
 }
 
