@@ -3,6 +3,13 @@
   margin: 0;
 }
 
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: local("Montserrat-Regular"),
+    url("./fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: bold;
+}
+
 :root {
   --primary: #145da1;
   --white: #ffffff;
@@ -12,6 +19,7 @@
   background-color: var(--primary);
 }
 
-body{
+body {
   background-color: #f6f7f9;
+  font-family: Montserrat-Regular;
 }

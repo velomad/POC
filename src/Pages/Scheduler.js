@@ -66,7 +66,7 @@ const Scheduler = () => {
         <div className="shadow-md bg-white p-2">
           <div>
             <div>Patient Information</div>
-            <div className="flex justify-between py-4">
+            <div className="grid grid-cols-6 py-4">
               <div>Registartion No. : Rg/21043</div>
               <div>Patient Name : Rupesh Tiwari</div>
               <div>Date of Birth : 21/02/1985</div>
@@ -74,12 +74,12 @@ const Scheduler = () => {
               <div>Gender : Male</div>
               <div>Mobile No. : 9485221445</div>
             </div>
-            <div className="flex space-x-20 py-4">
+            <div className="grid grid-cols-6 py-4">
               <div>
                 <div>Email ID :</div>
                 <div>rupeshtiwari@gmail.com</div>
               </div>
-              <div>
+              <div className="col-span-2">
                 <div>address:</div>{" "}
                 <div>
                   322, 3rd floor Vajreshwari APT, J.B.Nagar, Andheri East
