@@ -1,12 +1,12 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({ title }) => {
   return (
     <div className="flex">
-      <div className="px-20 py-4 bg-white flex items-center jsutify-center">
+      <div className="px-20 py-3 bg-white flex items-center jsutify-center">
         <img
           src="https://sakshiinfotech.com/DocVedaSEB/images/Login-Icons/DocVedaLogo-01.svg"
-          width="200px"
+          width="180px"
         />
       </div>
       <div className="flex background-primary justify-between w-full px-10 items-center bg-blue-500">
@@ -28,21 +28,24 @@ const Navbar = () => {
             </svg>
           </div>
           <div>
-            <img src="https://sakshiinfotech.com/DocVedaSEB/images/Clinic/Clinic.svg" />
+            <img
+              src="https://sakshiinfotech.com/DocVedaSEB/images/Clinic/Clinic.svg"
+              width="50px"
+            />
           </div>
-          <div className="text-white text-xl font-bold">Patient List</div>
+          <div className="text-white text-lg">{title}</div>
         </div>
         <div className="flex items-center space-x-4">
           <div>
             <img
               src="https://sakshiinfotech.com/DocVedaSEB/images/dashboard_inner_icons/Notifications-01.svg"
-              width="30px"
+              width="25px"
             />
           </div>
           <div>
             <img
               src="https://sakshiinfotech.com/DocVedaSEB/images/dashboard_inner_icons/User_icon-01.svg"
-              width="60px"
+              width="50px"
             />
           </div>
           <div>

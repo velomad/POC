@@ -58,6 +58,24 @@ const CustomTable = ({ columns, rows }) => {
       <form>
         <table className="table table-bordered">
           <thead>
+          <tr>
+              {columns.map((col, index) => (
+                <th>
+                  {index !== 0 && index !== columns.length - 1 && (
+                    <input
+                      name="patientName"
+                      className="border-2 p-1 rounded-lg form form-control"
+                      placeholder={col.title}
+                      type="search"
+                      style={{
+                        backgroundColor: "#f6f7f9",
+                      }}
+                    />
+                  )}
+                </th>
+              ))}
+            </tr>
+            
             <tr>
               {columns.map((col) => (
                 <th key={col.name} className="table-border">
@@ -65,6 +83,25 @@ const CustomTable = ({ columns, rows }) => {
                 </th>
               ))}
             </tr>
+            
+            <tr>
+              {columns.map((col, index) => (
+                <th>
+                  {index !== 0 && index !== columns.length - 1 && (
+                    <input
+                      name="patientName"
+                      className="border-2 p-1 rounded-lg form form-control"
+                      placeholder={col.title}
+                      type="search"
+                      style={{
+                        backgroundColor: "#f6f7f9",
+                      }}
+                    />
+                  )}
+                </th>
+              ))}
+            </tr>
+
           </thead>
           <tbody>
             {row.map((row, index) => (
@@ -171,7 +208,7 @@ const CustomTable = ({ columns, rows }) => {
                           onClick={() => handleEdit(row)}
                           xmlns="http://www.w3.org/2000/svg"
                           className="cursor-pointer"
-                          style={{ width: "20px", color: "skyblue" }}
+                          style={{ width: "15px", color: "skyblue" }}
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -187,7 +224,7 @@ const CustomTable = ({ columns, rows }) => {
                       <div>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          style={{ width: "20px", color: "red" }}
+                          style={{ width: "15px", color: "red" }}
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -202,11 +239,11 @@ const CustomTable = ({ columns, rows }) => {
                       </div>
                     </div>
                   ) : (
-                    <div className="d-flex justify-content-around">
+                    <div className="flex justify-around">
                       <div>
                         <svg
                           onClick={onRowChange}
-                          style={{ width: "20px", color: "green" }}
+                          style={{ width: "15px", color: "green" }}
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -223,7 +260,7 @@ const CustomTable = ({ columns, rows }) => {
                       <div>
                         <svg
                           onClick={cancleOperation}
-                          style={{ width: "20px", color: "gold" }}
+                          style={{ width: "15px", color: "gold" }}
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
