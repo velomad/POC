@@ -96,7 +96,7 @@ const Scheduler = () => {
             </div>
           </div>
           <div>
-            <div>Schedule Appointment</div>
+            <div className="font-primary font-bold">Schedule Appointment</div>
             <div className="py-4 grid grid-cols-4 gap-6">
               <div>
                 <InputField
