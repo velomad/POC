@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-// import { useSearch } from "./useSearch";
+import { useSearch } from "../hooks/useSearch";
 import Pagination from "@material-ui/lab/Pagination";
 import { ExportCsv } from "../components/ExportCsv";
 
 const CustomTable = ({ columns, rows }) => {
   const [row, setRow] = useState(rows);
-  const [value, setValue] = useState({});
+  const [value, setValue] = useState(null);
   const [isReadOnly, setReadOnly] = useState(null);
   const [input, setInput] = useState({});
-  const [errors, setErrors] = useState("");
+  const [filteredData] = useSearch(rows, value);
 
   const handleEdit = (row) => {
     setReadOnly(row.id);
@@ -32,10 +32,6 @@ const CustomTable = ({ columns, rows }) => {
   };
 
   const onRowChange = () => {
-    if (!input.patientName || input.patientName === "") {
-      setErrors("cannot be empty");
-    }
-
     if (Object.keys(input).length < 1) {
       setRow([...row, input]);
     }
@@ -50,32 +46,31 @@ const CustomTable = ({ columns, rows }) => {
     setInput({});
   };
 
+  console.log(value);
+
   return (
     <div>
       <div className="py-4">
         <ExportCsv csvData={row} fileName="registeredPatients" />
       </div>
       <form>
+        <div className="py-4">
+          <input
+            className="border-2 p-1 rounded-lg form form-control"
+            placeholder="Search By Registration No."
+            type="search"
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+            style={{
+              backgroundColor: "#f6f7f9",
+            }}
+          />
+        </div>
+
         <table className="table table-bordered">
           <thead>
-          <tr>
-              {columns.map((col, index) => (
-                <th>
-                  {index !== 0 && index !== columns.length - 1 && (
-                    <input
-                      name="patientName"
-                      className="border-2 p-1 rounded-lg form form-control"
-                      placeholder={col.title}
-                      type="search"
-                      style={{
-                        backgroundColor: "#f6f7f9",
-                      }}
-                    />
-                  )}
-                </th>
-              ))}
-            </tr>
-            
             <tr>
               {columns.map((col) => (
                 <th key={col.name} className="table-border">
@@ -83,7 +78,6 @@ const CustomTable = ({ columns, rows }) => {
                 </th>
               ))}
             </tr>
-            
             <tr>
               {columns.map((col, index) => (
                 <th>
@@ -101,10 +95,9 @@ const CustomTable = ({ columns, rows }) => {
                 </th>
               ))}
             </tr>
-
           </thead>
           <tbody>
-            {row.map((row, index) => (
+            {filteredData.map((row, index) => (
               <tr className="table-border" key={row.id}>
                 <td>{row.id}</td>
                 <td>{row.registrationNo}</td>
