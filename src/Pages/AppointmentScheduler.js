@@ -283,13 +283,13 @@ export default function Demo() {
             dayScaleCellComponent={DayScaleCell}
           />
 
-          <MonthView />
+          {/* <MonthView /> */}
           <Appointments appointmentComponent={Appointment} />
 
           <Toolbar />
           <DateNavigator />
 
-          <ViewSwitcher />
+          {/* <ViewSwitcher /> */}
           <EditRecurrenceMenu />
 
           <DragDropProvider />

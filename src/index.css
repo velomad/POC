@@ -62,3 +62,17 @@ body {
 .MuiButtonBase-root.MuiIconButton-root.MuiCheckbox-root.MuiCheckbox-colorPrimary.MuiIconButton-colorPrimary{
   display: none;
 }
+
+.MuiTypography-root{
+  font-size: 15px;
+}
+/* .MuiTypography-root.memo-label-369.memo-titleLabel-370.MuiTypography-body1{
+  font-size: 15px;
+} */
+
+.MuiTypography-root.MuiTypography-body1{
+  font-size: 16px;
+}
+.MuiInputBase-input.MuiFilledInput-input.MuiInputBase-inputHiddenLabel.MuiFilledInput-inputHiddenLabel{
+  font-size: 15px;
+}
