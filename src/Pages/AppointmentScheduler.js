@@ -5,7 +5,6 @@ import Container from "@material-ui/core/Container";
 import {
   ViewState,
   EditingState,
-  MonthView,
 } from "@devexpress/dx-react-scheduler";
 import ContactPhone from "@material-ui/icons/ContactPhone";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
@@ -28,6 +27,7 @@ import {
   WeekView,
   EditRecurrenceMenu,
   ConfirmationDialog,
+  MonthView,
   ViewSwitcher,
   DragDropProvider,
 } from "@devexpress/dx-react-scheduler-material-ui";
@@ -181,6 +181,9 @@ export default function Demo() {
   const [visibleForm, setVisibleForm] = React.useState(true);
   const [disableAppointmentOnHoliday, setDisableAppointmentOnHoliday] =
     React.useState(false);
+    const [currentViewName, setCurrentViewName] = React.useState('Week')
+
+
 
   // const disableAppointmentOnHoliday = (restProps) => {
   //   console.log(restProps);
@@ -198,6 +201,10 @@ export default function Demo() {
       {children}
     </Appointments.Appointment>
   );
+
+  const currentViewNameChange = (currentViewName) => {
+    setCurrentViewName(currentViewName)
+  }
 
   const currentDateChange = (currentDate) => {
     setCurrentDate(currentDate);
@@ -263,6 +270,8 @@ export default function Demo() {
           <ViewState
             currentDate={currentDate}
             onCurrentDateChange={currentDateChange}
+            currentViewName={currentViewName}
+            onCurrentViewNameChange={currentViewNameChange}
           />
           <EditingState
             onCommitChanges={commitChanges}
@@ -278,20 +287,21 @@ export default function Demo() {
             startDayHour={9}
             endDayHour={19}
             showAllDayTitle={false}
+            cellDuration={15}
             // excludedDays={[0]}
             timeTableCellComponent={TimeTableCell}
             dayScaleCellComponent={DayScaleCell}
           />
 
-          {/* <MonthView /> */}
+          <MonthView />
           <Appointments appointmentComponent={Appointment} />
 
           <Toolbar />
           <DateNavigator />
 
-          {/* <ViewSwitcher /> */}
+          <ViewSwitcher />
           <EditRecurrenceMenu />
-
+        <ConfirmationDialog/>
           <DragDropProvider />
 
           <AppointmentTooltip
