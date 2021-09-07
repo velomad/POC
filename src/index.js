@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './fonts/Montserrat-Regular.ttf'
 import './fonts/Montserrat-Bold.ttf'
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   <React.StrictMode>

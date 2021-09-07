@@ -14,7 +14,7 @@ const Scheduler = () => {
         </div>
 
         <div className="">
-          <div className="shadow-md bg-white p-2">
+          <div className="shadow-md bg-white p-2 fff">
             Application message are shown here...
           </div>
         </div>
@@ -65,7 +65,7 @@ const Scheduler = () => {
         </div>
         <div className="shadow-md bg-white p-2">
           <div>
-            <div>Patient Information</div>
+            <div className="font-primary font-bold">Patient Information</div>
             <div className="grid grid-cols-6 py-4">
               <div>Registartion No. : Rg/21043</div>
               <div>Patient Name : Rupesh Tiwari</div>

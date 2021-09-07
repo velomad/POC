@@ -9,30 +9,23 @@
     url("./fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: bold;
 }
-@font-face {
-  font-family: "Montserrat-Bold";
-  src: local("Montserrat-Bold"),
-    url("./fonts/Montserrat-Bold.ttf") format("truetype");
-  font-weight: bold;
-}
 
 :root {
   --primary: #145da1;
   --white: #ffffff;
 }
 
-.bg-primary {
+.background-primary {
   background-color: var(--primary);
 }
 
 .font-primary {
   color: var(--primary);
-  font-weight: 700;
 }
 
 body {
-  background-color: #f6f7f9;
-  font-family: Montserrat-Regular;
+  background-color: #f6f7f9 !important;
+  font-family: Montserrat-Regular !important;
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -50,15 +43,20 @@ body {
   background: rgb(34, 148, 241);
 }
 
-/* #root > div > div > div > div:nth-child(1) > div > div.MuiPaper-root.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.OverlayBase-absolutePosition-4.OverlayBase-paper-5.OverlayBase-halfSize-7.OverlayBase-transition-8.MuiPaper-elevation16 > div > div.LayoutBase-container-305 > div > div.MuiGrid-root.LayoutBase-booleanEditors-321.MuiGrid-container{
-  display: none;
-} */
-
-.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1{
+.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
   display: none;
 }
 
-
-.MuiButtonBase-root.MuiIconButton-root.MuiCheckbox-root.MuiCheckbox-colorPrimary.MuiIconButton-colorPrimary{
+.MuiButtonBase-root.MuiIconButton-root.MuiCheckbox-root.MuiCheckbox-colorPrimary.MuiIconButton-colorPrimary {
   display: none;
+}
+
+.footer {
+  background-image: linear-gradient(to right, #145ea9, #106a9c, #03b75c);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  margin: 8px 0;
 }

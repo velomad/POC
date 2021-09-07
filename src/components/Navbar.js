@@ -9,7 +9,7 @@ const Navbar = () => {
           width="200px"
         />
       </div>
-      <div className="flex bg-primary justify-between w-full px-10 items-center bg-blue-500">
+      <div className="flex background-primary justify-between w-full px-10 items-center bg-blue-500">
         <div className="flex items-center space-x-4">
           <div>
             <svg
@@ -30,7 +30,7 @@ const Navbar = () => {
           <div>
             <img src="https://sakshiinfotech.com/DocVedaSEB/images/Clinic/Clinic.svg" />
           </div>
-          <div className="text-white">Patient List</div>
+          <div className="text-white text-xl font-bold">Patient List</div>
         </div>
         <div className="flex items-center space-x-4">
           <div>
@@ -65,7 +65,7 @@ const Navbar = () => {
                 </svg>
               </div>
             </div>
-            <div className="text-white">Receptionist</div>
+            <div className="text-white text-xs">Receptionist</div>
           </div>
         </div>
       </div>
