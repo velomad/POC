@@ -3,7 +3,7 @@ import Breadcrum from "../components/Breadcrum";
 import Button from "../components/Button";
 import DropDown from "../components/DropDown";
 import InputField from "../components/InputField";
-import Navbar from "../components/Navbar";
+import AppointmentScheduler from "./AppointmentScheduler";
 
 const Scheduler = () => {
   return (
@@ -149,6 +149,7 @@ const Scheduler = () => {
             </div>
           </div>
         </div>
+      <AppointmentScheduler />
       </div>
     </div>
   );

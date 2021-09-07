@@ -2,10 +2,14 @@ import * as React from "react";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
-import { ViewState, EditingState, MonthView } from "@devexpress/dx-react-scheduler";
+import {
+  ViewState,
+  EditingState,
+  MonthView,
+} from "@devexpress/dx-react-scheduler";
 import ContactPhone from "@material-ui/icons/ContactPhone";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { fade } from "@material-ui/core/styles/colorManipulator";
 // import './css/bootstrap.min.css'
 // import './css/font-awesome.css'
 // import './css/bootstrap-glyphicons.css'
@@ -13,7 +17,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import {
   DateNavigator,
   Toolbar,
-  TodayButton
+  TodayButton,
 } from "@devexpress/dx-react-scheduler-material-ui";
 
 import {
@@ -25,26 +29,26 @@ import {
   EditRecurrenceMenu,
   ConfirmationDialog,
   ViewSwitcher,
-  DragDropProvider
+  DragDropProvider,
 } from "@devexpress/dx-react-scheduler-material-ui";
-import { appointments } from "../../demo-data/appointments"
+import { appointments } from "../demo-data/appointments";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   todayCell: {
     backgroundColor: fade(theme.palette.primary.main, 0.1),
-    '&:hover': {
+    "&:hover": {
       backgroundColor: fade(theme.palette.primary.main, 0.14),
     },
-    '&:focus': {
+    "&:focus": {
       backgroundColor: fade(theme.palette.primary.main, 0.16),
     },
   },
   weekendCell: {
     backgroundColor: fade(theme.palette.action.disabledBackground, 0.04),
-    '&:hover': {
+    "&:hover": {
       backgroundColor: fade(theme.palette.action.disabledBackground, 0.04),
     },
-    '&:focus': {
+    "&:focus": {
       backgroundColor: fade(theme.palette.action.disabledBackground, 0.04),
     },
   },
@@ -81,13 +85,17 @@ const TimeTableCell = (props) => {
   const classes = useStyles();
   const { startDate } = props;
   const date = new Date(startDate);
-  
+
   // if (date.getDate() === new Date().getDate()) {
   //   return <WeekView.TimeTableCell className={classes.todayCell}  {...props} />;
   // }
   if (date.getDay() === 0 || date.getDay() === 6) {
     return (
-      <WeekView.TimeTableCell {...props} className={classes.weekendCell} onDoubleClick={undefined} />
+      <WeekView.TimeTableCell
+        {...props}
+        className={classes.weekendCell}
+        onDoubleClick={undefined}
+      />
     );
   }
   return <WeekView.TimeTableCell {...props} />;
@@ -101,7 +109,13 @@ const DayScaleCell = (props) => {
   //   return <WeekView.DayScaleCell {...props} className={classes.today} />;
   // }
   if (startDate.getDay() === 0 || startDate.getDay() === 6) {
-    return <WeekView.DayScaleCell {...props} className={classes.weekend} onDoubleClick={undefined} />;
+    return (
+      <WeekView.DayScaleCell
+        {...props}
+        className={classes.weekend}
+        onDoubleClick={undefined}
+      />
+    );
   }
   return <WeekView.DayScaleCell {...props} />;
 };
@@ -119,7 +133,6 @@ const BasicLayout = ({ onFieldChange, appointmentData, ...restProps }) => {
     >
       <AppointmentForm.Label text="Patient contact number" type="title" />
       <AppointmentForm.TextEditor
-
         value={appointmentData.patientContactNumber}
         onValueChange={onCustomFieldChange}
         placeholder="Enter contact number"
@@ -166,7 +179,8 @@ export default function Demo() {
   const [AppointmentChanges, setAppointmentChanges] = React.useState("");
   const [editingAppointment, setEditingAppointment] = React.useState(undefined);
   const [visibleForm, setVisibleForm] = React.useState(true);
-  const [disableAppointmentOnHoliday,setDisableAppointmentOnHoliday] = React.useState(false)
+  const [disableAppointmentOnHoliday, setDisableAppointmentOnHoliday] =
+    React.useState(false);
 
   // const disableAppointmentOnHoliday = (restProps) => {
   //   console.log(restProps);
@@ -227,7 +241,6 @@ export default function Demo() {
   };
 
   return (
-    
     // <Container
     //   // fixed
     //   // className="scrollable"
@@ -240,63 +253,61 @@ export default function Demo() {
     // >
 
     <div>
-    <Paper elevation={3}>
-      <Scheduler
-        data={data}
-        height={560}
-        setCurrentDate={currentDate}
-        firstDayOfWeek={currentDate.getDay()}
-        
-      >
-        <ViewState
-          currentDate={currentDate}
-          onCurrentDateChange={currentDateChange}
-        />
-        <EditingState
-          onCommitChanges={commitChanges}
-          addedAppointment={changeAppointment}
-          onAddedAppointmentChange={changeAddedAppointment}
-          appointmentChanges={AppointmentChanges}
-          onAppointmentChangesChange={changeAppointmentChanges}
-          editingAppointment={editingAppointment}
-          onEditingAppointmentChange={changeEditingAppointment}
-          preCommitChanges={preCommitChanges}
-        />
-        <WeekView
-          startDayHour={9}
-          endDayHour={19}
-          showAllDayTitle={false}
-          // excludedDays={[0]}
-          timeTableCellComponent={TimeTableCell}
-          dayScaleCellComponent={DayScaleCell}
-        />
+      <Paper elevation={3}>
+        <Scheduler
+          data={data}
+          height={560}
+          setCurrentDate={currentDate}
+          firstDayOfWeek={currentDate.getDay()}
+        >
+          <ViewState
+            currentDate={currentDate}
+            onCurrentDateChange={currentDateChange}
+          />
+          <EditingState
+            onCommitChanges={commitChanges}
+            addedAppointment={changeAppointment}
+            onAddedAppointmentChange={changeAddedAppointment}
+            appointmentChanges={AppointmentChanges}
+            onAppointmentChangesChange={changeAppointmentChanges}
+            editingAppointment={editingAppointment}
+            onEditingAppointmentChange={changeEditingAppointment}
+            preCommitChanges={preCommitChanges}
+          />
+          <WeekView
+            startDayHour={9}
+            endDayHour={19}
+            showAllDayTitle={false}
+            // excludedDays={[0]}
+            timeTableCellComponent={TimeTableCell}
+            dayScaleCellComponent={DayScaleCell}
+          />
 
-        <MonthView/>
-        <Appointments appointmentComponent={Appointment} />
+          <MonthView />
+          <Appointments appointmentComponent={Appointment} />
 
-        <Toolbar />
-        <DateNavigator />
+          <Toolbar />
+          <DateNavigator />
 
-        <ViewSwitcher />
-        <EditRecurrenceMenu />
+          <ViewSwitcher />
+          <EditRecurrenceMenu />
 
-        <DragDropProvider / >
+          <DragDropProvider />
 
-        <AppointmentTooltip
-          showOpenButton
-          showDeleteButton
-          showCloseButton
-          contentComponent={Content}
-        />
-        <TodayButton/>
-        <AppointmentForm
-      
-          basicLayoutComponent={BasicLayout}
-          textEditorComponent={TextEditor} //Add new textbox
-          messages={messages}
-        />
-      </Scheduler>
-    </Paper>
+          <AppointmentTooltip
+            showOpenButton
+            showDeleteButton
+            showCloseButton
+            contentComponent={Content}
+          />
+          <TodayButton />
+          <AppointmentForm
+            basicLayoutComponent={BasicLayout}
+            textEditorComponent={TextEditor} //Add new textbox
+            messages={messages}
+          />
+        </Scheduler>
+      </Paper>
     </div>
     // </Container>
   );
