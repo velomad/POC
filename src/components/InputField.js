@@ -7,7 +7,7 @@ const InputField = ({ label, type, placeholder }) => {
         <label className="capitalize">{label}</label>
       </div>
       <input
-        className="border-2 w-96 p-1.5 capitalize"
+        className="border-2 w-full p-1.5 capitalize"
         type={type}
         placeholder={placeholder}
       />

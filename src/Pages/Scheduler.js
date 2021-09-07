@@ -97,7 +97,7 @@ const Scheduler = () => {
           </div>
           <div>
             <div>Schedule Appointment</div>
-            <div className="py-4 flex justify-between">
+            <div className="py-4 grid grid-cols-4 gap-6">
               <div>
                 <InputField
                   label="Appointment Date"
@@ -123,7 +123,7 @@ const Scheduler = () => {
                 <DropDown label="source" options={["walk-in", "on phone"]} />
               </div>
             </div>
-            <div className="py-4 flex justify-between">
+            <div className="py-4 grid grid-cols-4 gap-6">
               <div>
                 <DropDown label="Clinic Branch" options={["Khar", "Bandra"]} />
               </div>
