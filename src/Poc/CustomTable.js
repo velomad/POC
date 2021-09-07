@@ -6,9 +6,9 @@ import { ExportCsv } from "../components/ExportCsv";
 const CustomTable = ({ columns, rows }) => {
   const [row, setRow] = useState(rows);
   const [value, setValue] = useState(null);
+  // const [filteredData] = useSearch(row, value);
   const [isReadOnly, setReadOnly] = useState(null);
   const [input, setInput] = useState({});
-  const [filteredData] = useSearch(rows, value);
 
   const handleEdit = (row) => {
     setReadOnly(row.id);
@@ -39,14 +39,10 @@ const CustomTable = ({ columns, rows }) => {
     setInput({});
   };
 
-  console.log(input);
-
   const cancleOperation = () => {
     setReadOnly(null);
     setInput({});
   };
-
-  console.log(value);
 
   return (
     <div>
@@ -55,7 +51,7 @@ const CustomTable = ({ columns, rows }) => {
       </div>
       <form>
         <div className="py-4">
-          <input
+          {/* <input
             className="border-2 p-1 rounded-lg form form-control"
             placeholder="Search By Registration No."
             type="search"
@@ -66,7 +62,7 @@ const CustomTable = ({ columns, rows }) => {
             style={{
               backgroundColor: "#f6f7f9",
             }}
-          />
+          /> */}
         </div>
 
         <table className="table table-bordered">
@@ -97,7 +93,7 @@ const CustomTable = ({ columns, rows }) => {
             </tr>
           </thead>
           <tbody>
-            {filteredData.map((row, index) => (
+            {row.map((row, index) => (
               <tr className="table-border" key={row.id}>
                 <td>{row.id}</td>
                 <td>{row.registrationNo}</td>
