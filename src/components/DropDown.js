@@ -6,7 +6,7 @@ const DropDown = ({ label, options }) => {
       <div>
         <label>{label}</label>
       </div>
-      <select className="border-2 h-10 w-96 p-1.5">
+      <select className="border-2 h-10 w-full p-1.5">
         {options.map((el, index) => (
           <option key={index}>{el}</option>
         ))}
