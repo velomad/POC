@@ -338,7 +338,7 @@ export default function Demo() {
 
           <ViewSwitcher />
           <EditRecurrenceMenu />
-        <ConfirmationDialog/>
+        <ConfirmationDialog ignoreCancel={true}	/>
           <DragDropProvider />
 
           <AppointmentTooltip
