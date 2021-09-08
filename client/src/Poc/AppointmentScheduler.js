@@ -203,7 +203,6 @@ export default function Demo() {
   }) => (
     <RadioGroup
       aria-label="Views"
-      style={{ flexDirection: 'row' }}
       name="views"
       value={currentViewName}
       onChange={onChange}
@@ -326,11 +325,12 @@ export default function Demo() {
             showAllDayTitle={false}
             cellDuration={15}
             // excludedDays={[0]}
+            displayName={"Weekly View"}
             timeTableCellComponent={TimeTableCell}
             dayScaleCellComponent={DayScaleCell}
           />
 
-          <MonthView />
+          <MonthView displayName={"Monthly View"} />
           <Appointments appointmentComponent={Appointment} />
 
           <Toolbar />
