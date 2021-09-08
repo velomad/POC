@@ -15,7 +15,7 @@ const Scheduler = () => {
 
         <div className="">
           <div className="shadow-md bg-white p-2 fff">
-            Application message are shown here...
+            Application message are shown here..
           </div>
         </div>
 

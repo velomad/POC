@@ -2,17 +2,14 @@ import * as React from "react";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
-import {
-  ViewState,
-  EditingState,
-} from "@devexpress/dx-react-scheduler";
+import { ViewState, EditingState } from "@devexpress/dx-react-scheduler";
 import ContactPhone from "@material-ui/icons/ContactPhone";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { fade } from "@material-ui/core/styles/colorManipulator";
-import Radio from '@material-ui/core/Radio';
-import Button from '@material-ui/core/Button';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Radio from "@material-ui/core/Radio";
+import Button from "@material-ui/core/Button";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 // import './css/bootstrap.min.css'
 // import './css/font-awesome.css'
 // import './css/bootstrap-glyphicons.css'
@@ -152,8 +149,6 @@ const TextEditor = (props) => {
   return <AppointmentForm.TextEditor {...props} />;
 };
 
-
-
 const Content = withStyles(style, { name: "Content" })(
   ({ children, appointmentData, classes, ...restProps }) => (
     <AppointmentTooltip.Content
@@ -187,30 +182,28 @@ export default function Demo() {
   const [visibleForm, setVisibleForm] = React.useState(true);
   const [disableAppointmentOnHoliday, setDisableAppointmentOnHoliday] =
     React.useState(false);
-    const [currentViewName, setCurrentViewName] = React.useState('Week')
-
-
+  const [currentViewName, setCurrentViewName] = React.useState("Week");
 
   // const disableAppointmentOnHoliday = (restProps) => {
   //   console.log(restProps);
   //   setVisibleForm(false);
   // };
 
-  const ExternalViewSwitcher = ({
-    currentViewName,
-    onChange,
-    style,
-  }) => (
+  const ExternalViewSwitcher = ({ currentViewName, onChange, style }) => (
     <RadioGroup
       aria-label="Views"
       name="views"
       value={currentViewName}
       onChange={onChange}
-      style={{marginLeft:"20px",flexDirection:"row"}}
+      style={{ marginLeft: "20px", flexDirection: "row" }}
     >
-      <FormControlLabel value="Week" control={<Radio />} label="Weekly View"/>
+      <FormControlLabel value="Week" control={<Radio />} label="Weekly View" />
       {/* <FormControlLabel value="Work Week" control={<Radio />} label="Work Week" /> */}
-      <FormControlLabel value="Month" control={<Radio />} label="Monthly View" />
+      <FormControlLabel
+        value="Month"
+        control={<Radio />}
+        label="Monthly View"
+      />
     </RadioGroup>
   );
 
@@ -227,13 +220,13 @@ export default function Demo() {
     </Appointments.Appointment>
   );
 
-  const currentViewNameChanges = (e) =>{
-    setCurrentViewName(e.target.value)
-  }
+  const currentViewNameChanges = (e) => {
+    setCurrentViewName(e.target.value);
+  };
 
   const currentViewNameChange = (currentViewName) => {
-    setCurrentViewName(currentViewName)
-  }
+    setCurrentViewName(currentViewName);
+  };
 
   const currentDateChange = (currentDate) => {
     setCurrentDate(currentDate);
@@ -290,74 +283,71 @@ export default function Demo() {
 
     <div>
       <Paper elevation={3}>
-
-      <React.Fragment>
-        <ExternalViewSwitcher
-          
-          currentViewName={currentViewName}
-          onChange={currentViewNameChanges}
-        />
-        <Scheduler
-          data={data}
-          height={560}
-          setCurrentDate={currentDate}
-          firstDayOfWeek={currentDate.getDay()}
-        >
-          <ViewState
-            currentDate={currentDate}
-            onCurrentDateChange={currentDateChange}
+        <React.Fragment>
+          <ExternalViewSwitcher
             currentViewName={currentViewName}
-            onCurrentViewNameChange={currentViewNameChange}
+            onChange={currentViewNameChanges}
           />
-          <EditingState
-            onCommitChanges={commitChanges}
-            addedAppointment={changeAppointment}
-            onAddedAppointmentChange={changeAddedAppointment}
-            appointmentChanges={AppointmentChanges}
-            onAppointmentChangesChange={changeAppointmentChanges}
-            editingAppointment={editingAppointment}
-            onEditingAppointmentChange={changeEditingAppointment}
-            preCommitChanges={preCommitChanges}
-          />
-          <WeekView
-            startDayHour={9}
-            endDayHour={19}
-            showAllDayTitle={false}
-            cellDuration={15}
-            // excludedDays={[0]}
-            displayName={"Weekly View"}
-            timeTableCellComponent={TimeTableCell}
-            dayScaleCellComponent={DayScaleCell}
-          />
+          <Scheduler
+            data={data}
+            height={560}
+            setCurrentDate={currentDate}
+            firstDayOfWeek={currentDate.getDay()}
+          >
+            <ViewState
+              currentDate={currentDate}
+              onCurrentDateChange={currentDateChange}
+              currentViewName={currentViewName}
+              onCurrentViewNameChange={currentViewNameChange}
+            />
+            <EditingState
+              onCommitChanges={commitChanges}
+              addedAppointment={changeAppointment}
+              onAddedAppointmentChange={changeAddedAppointment}
+              appointmentChanges={AppointmentChanges}
+              onAppointmentChangesChange={changeAppointmentChanges}
+              editingAppointment={editingAppointment}
+              onEditingAppointmentChange={changeEditingAppointment}
+              preCommitChanges={preCommitChanges}
+            />
+            <WeekView
+              startDayHour={9}
+              endDayHour={19}
+              showAllDayTitle={false}
+              cellDuration={15}
+              // excludedDays={[0]}
+              displayName={"Weekly View"}
+              timeTableCellComponent={TimeTableCell}
+              dayScaleCellComponent={DayScaleCell}
+            />
 
-          <MonthView displayName={"Monthly View"} />
-          <Appointments appointmentComponent={Appointment} />
+            <MonthView displayName={"Monthly View"} />
+            <Appointments appointmentComponent={Appointment} />
 
-          <Toolbar />
-          <DateNavigator />
+            <Toolbar />
+            <DateNavigator />
 
-          <ViewSwitcher />
-          <EditRecurrenceMenu />
-        <ConfirmationDialog ignoreCancel={true}	/>
-          <DragDropProvider />
+            <ViewSwitcher />
+            <EditRecurrenceMenu />
+            <ConfirmationDialog ignoreCancel={true} />
+            <DragDropProvider />
 
-          <AppointmentTooltip
-            showOpenButton
-            showDeleteButton
-            showCloseButton
-            contentComponent={Content}
-          />
-          <TodayButton />
-          <AppointmentForm
-            // commandButtonComponent={OnSbumitComponent}
-            basicLayoutComponent={BasicLayout}
-            textEditorComponent={TextEditor} //Add new textbox
-            messages={messages}
-          />
-        </Scheduler>
-      </React.Fragment>
+            <AppointmentTooltip
+              showOpenButton
+              showDeleteButton
+              showCloseButton
+              contentComponent={Content}
+            />
+            <TodayButton />
+            <AppointmentForm
+              // commandButtonComponent={OnSbumitComponent}
+              basicLayoutComponent={BasicLayout}
+              textEditorComponent={TextEditor} //Add new textbox
+              messages={messages}
+            />
+          </Scheduler>
+        </React.Fragment>
       </Paper>
-
     </div>
     // </Container>
   );
