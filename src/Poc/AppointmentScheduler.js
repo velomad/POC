@@ -209,9 +209,9 @@ export default function Demo() {
       onChange={onChange}
       style={{marginLeft:"20px",flexDirection:"row"}}
     >
-      <FormControlLabel value="Week" control={<Radio />} label="Weekly View" l />
+      <FormControlLabel value="Week" control={<Radio />} label="Week View" l />
       {/* <FormControlLabel value="Work Week" control={<Radio />} label="Work Week" /> */}
-      <FormControlLabel value="Month" control={<Radio />} label="Monthly View" />
+      <FormControlLabel value="Month" control={<Radio />} label="Month View" />
     </RadioGroup>
   );
 
