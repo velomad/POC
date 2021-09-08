@@ -6,7 +6,7 @@ import { ExportCsv } from "../components/ExportCsv";
 const CustomTable = ({ columns, rows }) => {
   const [row, setRow] = useState(rows);
   const [value, setValue] = useState(null);
-  // const [filteredData] = useSearch(row, value);
+  const [filteredData] = useSearch(row, value);
   const [isReadOnly, setReadOnly] = useState(null);
   const [input, setInput] = useState({});
 
@@ -14,6 +14,8 @@ const CustomTable = ({ columns, rows }) => {
     setReadOnly(row.id);
     setInput(row);
   };
+
+  console.log("==============>>>", filteredData);
 
   const handleChange = (e, idx) => {
     const { name, value } = e.target;
@@ -31,17 +33,28 @@ const CustomTable = ({ columns, rows }) => {
     ]);
   };
 
+  console.log(input);
+
   const onRowChange = () => {
-    if (Object.keys(input).length < 1) {
-      setRow([...row, input]);
-    }
-    setReadOnly(null);
-    setInput({});
+    let existingRow = row[row.length - 1];
+    let test = [...row].find((el) => el.id == existingRow.id);
+
+    console.log(test);
+    const data = Object.assign(test, input);
+    console.log(row)
+    setRow([...row,data])
   };
 
   const cancleOperation = () => {
     setReadOnly(null);
     setInput({});
+  };
+
+  console.log(value);
+
+  const onHandleSearch = (e) => {
+    const { name, value } = e.target;
+    setValue({ [name]: value });
   };
 
   return (
@@ -79,10 +92,12 @@ const CustomTable = ({ columns, rows }) => {
                 <th>
                   {index !== 0 && index !== columns.length - 1 && (
                     <input
-                      name="patientName"
+                      name={col.name}
                       className="border-2 p-1 rounded-lg form form-control"
                       placeholder={col.title}
                       type="search"
+                      // value={value[col.name]}
+                      onChange={onHandleSearch}
                       style={{
                         backgroundColor: "#f6f7f9",
                       }}
@@ -93,7 +108,7 @@ const CustomTable = ({ columns, rows }) => {
             </tr>
           </thead>
           <tbody>
-            {row.map((row, index) => (
+            {filteredData.map((row, index) => (
               <tr className="table-border" key={row.id}>
                 <td>{row.id}</td>
                 <td>{row.registrationNo}</td>
