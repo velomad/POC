@@ -15,8 +15,6 @@ const CustomTable = ({ columns, rows }) => {
     setInput(row);
   };
 
-  console.log("==============>>>", filteredData);
-
   const handleChange = (e, idx) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
@@ -24,7 +22,6 @@ const CustomTable = ({ columns, rows }) => {
 
   const handleAddRow = () => {
     setReadOnly(row.length + 1);
-    // setInput({});
     setRow([
       ...row,
       {
@@ -33,16 +30,12 @@ const CustomTable = ({ columns, rows }) => {
     ]);
   };
 
-  console.log(input);
-
-  const onRowChange = () => {
-    let existingRow = row[row.length - 1];
-    let test = [...row].find((el) => el.id == existingRow.id);
-
-    console.log(test);
-    const data = Object.assign(test, input);
-    console.log(row)
-    setRow([...row,data])
+  const onRowChange = (index) => {
+    let data1 = [...row]
+    data1[index] = Object.assign({ id: index + 1 }, input);
+    setRow(data1);
+    setReadOnly(null);
+    setInput({});
   };
 
   const cancleOperation = () => {
@@ -63,21 +56,7 @@ const CustomTable = ({ columns, rows }) => {
         <ExportCsv csvData={row} fileName="registeredPatients" />
       </div>
       <form>
-        <div className="py-4">
-          {/* <input
-            className="border-2 p-1 rounded-lg form form-control"
-            placeholder="Search By Registration No."
-            type="search"
-            value={value}
-            onChange={(e) => {
-              setValue(e.target.value);
-            }}
-            style={{
-              backgroundColor: "#f6f7f9",
-            }}
-          /> */}
-        </div>
-
+        <div className="py-4"></div>
         <table className="table table-bordered">
           <thead>
             <tr>
@@ -246,7 +225,7 @@ const CustomTable = ({ columns, rows }) => {
                     <div className="flex justify-around">
                       <div>
                         <svg
-                          onClick={onRowChange}
+                          onClick={() => onRowChange(index)}
                           style={{ width: "15px", color: "green" }}
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"

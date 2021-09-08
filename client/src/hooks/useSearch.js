@@ -1,5 +1,4 @@
 export const useSearch = (data, value) => {
-  console.log(data);
   let filteredData;
 
   if (!value) {
@@ -10,8 +9,7 @@ export const useSearch = (data, value) => {
   let searchValue = value && Object.values(value)[0];
   let searchKey = value && Object.keys(value)[0];
   filteredData = data.filter((el) => {
-    return el?.[searchKey].toLowerCase().includes(searchValue?.toLowerCase());
+    return el[searchKey].toLowerCase().includes(searchValue?.toLowerCase());
   });
-
   return [filteredData];
 };

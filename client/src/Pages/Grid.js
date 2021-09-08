@@ -3,6 +3,8 @@ import Breadcrum from "../components/Breadcrum";
 import Button from "../components/Button";
 import Navbar from "../components/Navbar";
 import CustomTable from "../Poc/CustomTable";
+import DevExpressGrid from "../Poc/DevExpressGrid";
+import EditableRow from "../Poc/EditableRow";
 
 const Grid = () => {
   const columns = [
@@ -184,6 +186,10 @@ const Grid = () => {
           </div>
         </div>
         <CustomTable columns={columns} rows={rows} />
+
+        <DevExpressGrid />
+
+        <EditableRow columns={columns} rowss={rows} />
       </div>
     </div>
   );
