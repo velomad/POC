@@ -1,8 +1,8 @@
 export const appointments = [
     {
       title: ' Rupesh Rao	',
-      startDate: new Date(2021, 8, 6, 10, 30),
-      endDate: new Date(2021, 8, 6, 11, 0),
+      startDate: new Date(2021, 8, 10, 10, 30),
+      endDate: new Date(2021, 8, 10, 11, 0),
       id: 0,
       patientContactNumber:"9989765278"
     }, {
