@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   font-size: 12px;
-
 }
 
 @font-face {
@@ -27,6 +26,7 @@
 body {
   background-color: #f6f7f9 !important;
   font-family: Montserrat-Regular !important;
+  position: relative;
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -64,11 +64,16 @@ input[type="text"] {
   width: 100%;
 }
 
-.MuiTypography-root.MuiTypography-body1{
+select:focus {
+  box-shadow: 0 0 8px 0.3px dodgerblue;
+  border: 0.1px solid dodgerblue;
+}
+
+.MuiTypography-root.MuiTypography-body1 {
   font-size: 16px;
 }
 
-.MuiInputBase-input.MuiFilledInput-input.MuiInputBase-inputHiddenLabel.MuiFilledInput-inputHiddenLabel{
+.MuiInputBase-input.MuiFilledInput-input.MuiInputBase-inputHiddenLabel.MuiFilledInput-inputHiddenLabel {
   font-size: 15px;
 }
 
@@ -79,7 +84,7 @@ input[type="text"] {
   width: 100%;
   height: 100%;
 
-  background: rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .loading-icon-mui {
@@ -88,3 +93,7 @@ input[type="text"] {
   top: calc(45% - 10px);
   left: calc(50% - 10px);
 }
+
+
+
+

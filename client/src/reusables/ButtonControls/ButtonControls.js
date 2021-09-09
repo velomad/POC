@@ -1,67 +1,29 @@
-import React from 'react'
-import Button from './Button'
-import PropTypes from 'prop-types'
+import React from "react";
+import Button from "./Button";
+import PropTypes from "prop-types";
 
-const ButtonControls = ({ excludeButton }) => {
-    return (
-        <div>
-            <div className="flex space-x-1.5">
-                <div className="inline-block">
-                    <Button
-                        btnText="add"
-                        imageUrl="https://sakshiinfotech.com/DocVedaSEB/images/add.svg"
-                    />
-                </div>
-                <div className="inline-block">
-                    <Button
-                        btnText="edit"
-                        imageUrl="https://sakshiinfotech.com/DocVedaSEB/images/Edit-01.svg"
-                    />
-                </div>
-                <div className="inline-block">
-                    <Button
-                        btnText="View"
-                        imageUrl="https://sakshiinfotech.com/DocVedaSEB/images/Edit-01.svg"
-                    />
-                </div>
-                <div className="inline-block">
-                    <Button
-                        btnText="save"
-                        imageUrl="https://sakshiinfotech.com/DocVedaSEB/images/Save-01.svg"
-                    />
-                </div>
-                <div className="inline-block">
-                    <Button
-                        btnText="search"
-                        imageUrl="https://sakshiinfotech.com/DocVedaSEB/images/Search-01.svg"
-                    />
-                </div>
-                <div className="inline-block">
-                    <Button
-                        btnText="reset"
-                        imageUrl="https://sakshiinfotech.com/DocVedaSEB/images/reset.svg"
-                    />
-                </div>
-                <div className="inline-block">
-                    <Button
-                        btnText="cancel"
-                        imageUrl="https://sakshiinfotech.com/DocVedaSEB/images/Cancel-01.svg"
-                    />
-                </div>
-                <div className="inline-block">
-                    <Button
-                        btnText="import from appointment"
-                        imageUrl="https://sakshiinfotech.com/DocVedaSEB/images/Save-01.svg"
-                    />
-                </div>
-            </div>
+const ButtonControls = ({ exclude }) => {
+  const buttons = ["add", "edit", "save", "search", "reset", "cancel"];
 
-        </div>
-    )
-}
+  const excludeBtns = buttons.filter((el) =>
+    exclude ? !exclude.includes(el) : buttons
+  );
 
-ButtonControls.protoTypes = {
-    excludeButton: PropTypes.array
-}
+  return (
+    <div>
+      <div className="flex space-x-1.5">
+        {excludeBtns.map((btn, index) => (
+          <div key={index} className="inline-block">
+            <Button btnText={btn} imageUrl={`/images/${btn}.svg`} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default ButtonControls
+ButtonControls.propTypes = {
+  exclude: PropTypes.array,
+};
+
+export default ButtonControls;
