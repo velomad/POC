@@ -149,7 +149,7 @@ const Scheduler = () => {
             </div>
           </div>
         </div>
-        <AppointmentScheduler />
+        {/* <AppointmentScheduler /> */}
       </div>
     </div>
   );
