@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Select from "react-select";
+import Select, {components} from "react-select";
 
 const Dropdown = ({ label, options, searchable }) => {
   return (
