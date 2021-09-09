@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/velomad/POC#readme",
   "dependencies": {
+    "@devexpress/dx-react-grid-bootstrap4": "^2.7.6",
     "express": "^4.17.1"
   }
 }
