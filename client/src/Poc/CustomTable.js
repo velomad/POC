@@ -6,7 +6,7 @@ import { ExportCsv } from "../components/ExportCsv";
 const CustomTable = ({ columns, rows }) => {
   const [row, setRow] = useState(rows);
   const [value, setValue] = useState(null);
-  // const [filteredData] = useSearch(row, value);
+  const [filteredData] = useSearch(row, value);
   const [isReadOnly, setReadOnly] = useState(null);
   const [input, setInput] = useState({});
 
@@ -22,7 +22,6 @@ const CustomTable = ({ columns, rows }) => {
 
   const handleAddRow = () => {
     setReadOnly(row.length + 1);
-    // setInput({});
     setRow([
       ...row,
       {
@@ -31,10 +30,10 @@ const CustomTable = ({ columns, rows }) => {
     ]);
   };
 
-  const onRowChange = () => {
-    if (Object.keys(input).length < 1) {
-      setRow([...row, input]);
-    }
+  const onRowChange = (index) => {
+    let data1 = [...row]
+    data1[index] = Object.assign({ id: index + 1 }, input);
+    setRow(data1);
     setReadOnly(null);
     setInput({});
   };
@@ -44,27 +43,20 @@ const CustomTable = ({ columns, rows }) => {
     setInput({});
   };
 
+  console.log(value);
+
+  const onHandleSearch = (e) => {
+    const { name, value } = e.target;
+    setValue({ [name]: value });
+  };
+
   return (
     <div>
       <div className="py-4">
         <ExportCsv csvData={row} fileName="registeredPatients" />
       </div>
       <form>
-        <div className="py-4">
-          {/* <input
-            className="border-2 p-1 rounded-lg form form-control"
-            placeholder="Search By Registration No."
-            type="search"
-            value={value}
-            onChange={(e) => {
-              setValue(e.target.value);
-            }}
-            style={{
-              backgroundColor: "#f6f7f9",
-            }}
-          /> */}
-        </div>
-
+        <div className="py-4"></div>
         <table className="table table-bordered">
           <thead>
             <tr>
@@ -79,10 +71,12 @@ const CustomTable = ({ columns, rows }) => {
                 <th>
                   {index !== 0 && index !== columns.length - 1 && (
                     <input
-                      name="patientName"
+                      name={col.name}
                       className="border-2 p-1 rounded-lg form form-control"
                       placeholder={col.title}
                       type="search"
+                      // value={value[col.name]}
+                      onChange={onHandleSearch}
                       style={{
                         backgroundColor: "#f6f7f9",
                       }}
@@ -93,7 +87,7 @@ const CustomTable = ({ columns, rows }) => {
             </tr>
           </thead>
           <tbody>
-            {row.map((row, index) => (
+            {filteredData.map((row, index) => (
               <tr className="table-border" key={row.id}>
                 <td>{row.id}</td>
                 <td>{row.registrationNo}</td>
@@ -231,7 +225,7 @@ const CustomTable = ({ columns, rows }) => {
                     <div className="flex justify-around">
                       <div>
                         <svg
-                          onClick={onRowChange}
+                          onClick={() => onRowChange(index)}
                           style={{ width: "15px", color: "green" }}
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
