@@ -21,11 +21,13 @@ const Routes = () => {
             pathName === "/" ? "Schedule Appointment" : "Patient Registration"
           }
         />
-        <Switch>
-          <Route exact="/" path="/" component={Scheduler} />
-          <Route path="/grid" component={Grid} />
-          <Route path="/components" component={Components} />
-        </Switch>
+        <div className="py-8">
+          <Switch>
+            <Route exact="/" path="/" component={Scheduler} />
+            <Route path="/grid" component={Grid} />
+            <Route path="/components" component={Components} />
+          </Switch>
+        </div>
         <Footer />
       </BrowserRouter>
     </div>
