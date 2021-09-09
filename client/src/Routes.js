@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Grid from "./Pages/Grid";
 import Scheduler from "./Pages/Scheduler";
+import SchedularSync from "./Pages/SchedularSync";
 
 const Routes = () => {
   const [pathName, setPathName] = useState("");
@@ -23,6 +24,7 @@ const Routes = () => {
         <Switch>
           <Route exact="/" path="/" component={Scheduler} />
           <Route path="/grid" component={Grid} />
+          <Route path="/schedular" component={SchedularSync} />
         </Switch>
         <Footer />
       </BrowserRouter>
