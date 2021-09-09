@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Components from "./Pages/Components";
 import Grid from "./Pages/Grid";
 import Scheduler from "./Pages/Scheduler";
+import SchedularSync from "./Pages/SchedularSync";
 
 const Routes = () => {
   const [pathName, setPathName] = useState("");
@@ -22,11 +23,13 @@ const Routes = () => {
           }
         />
         <div className="py-8">
-          <Switch>
-            <Route exact="/" path="/" component={Scheduler} />
-            <Route path="/grid" component={Grid} />
-            <Route path="/components" component={Components} />
-          </Switch>
+         
+        <Switch>
+          <Route exact="/" path="/" component={Scheduler} />
+          <Route path="/grid" component={Grid} />
+          <Route path="/schedular" component={SchedularSync} />
+          <Route path="/components" component={Components} />
+        </Switch>
         </div>
         <Footer />
       </BrowserRouter>
