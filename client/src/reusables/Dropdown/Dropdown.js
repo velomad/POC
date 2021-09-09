@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Select, {components} from "react-select";
+import Select, { components } from "react-select";
 
-const Dropdown = ({ label, options, searchable }) => {
+const Dropdown = ({ label, options, searchable,  }) => {
   return (
     <>
       {!searchable ? (
@@ -10,7 +10,7 @@ const Dropdown = ({ label, options, searchable }) => {
           <div>
             <label className="capitalize">{label}</label>
           </div>
-          <select className=" border-2 h-10 w-60 focus:outline-none p-1.5">
+          <select className="rounded-md border-2 h-10 w-60 focus:outline-none p-1.5">
             <option selected>select</option>
             {options.map((el, index) => (
               <option key={index}>{el.label}</option>

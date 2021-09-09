@@ -1,5 +1,11 @@
 import React from "react";
-import { ButtonControls, Dropdown, SearchableDropdown } from "../reusables";
+import {
+  ButtonControls,
+  Dropdown,
+  FileUpload,
+  SearchableDropdown,
+  TextInput,
+} from "../reusables";
 
 const Components = () => {
   return (
@@ -29,6 +35,15 @@ const Components = () => {
           ]}
           label="credit limit"
         />
+      </div>
+      <hr />
+      <div>
+        <TextInput label="first name" placeholder="first name" />
+      </div>
+      <hr />
+
+      <div>
+        <FileUpload documentName="photo" />
       </div>
     </div>
   );
