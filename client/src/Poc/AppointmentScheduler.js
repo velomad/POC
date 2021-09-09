@@ -190,12 +190,16 @@ export default function Demo() {
     const [currentViewName, setCurrentViewName] = React.useState('Week')
 
 
-
+console.log(data)
   // const disableAppointmentOnHoliday = (restProps) => {
   //   console.log(restProps);
   //   setVisibleForm(false);
   // };
 
+const allowDragAppointment = (props) =>{
+ return <DragDropProvider.DraftAppointment {...props} />
+}
+  
   const ExternalViewSwitcher = ({
     currentViewName,
     onChange,
@@ -338,7 +342,7 @@ export default function Demo() {
 
           <ViewSwitcher />
           <EditRecurrenceMenu />
-        <ConfirmationDialog ignoreCancel={true}	/>
+        <ConfirmationDialog ignoreCancel={true} 	/> 
           <DragDropProvider />
 
           <AppointmentTooltip
