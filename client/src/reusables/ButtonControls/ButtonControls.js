@@ -60,8 +60,8 @@ const ButtonControls = ({ excludeButton }) => {
     )
 }
 
-// ButtonControls.PropTypes = {
-//     excludeButton: PropTypes.array
-// }
+ButtonControls.protoTypes = {
+    excludeButton: PropTypes.array
+}
 
 export default ButtonControls
