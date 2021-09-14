@@ -37,8 +37,22 @@ const Components = () => {
         />
       </div>
       <hr />
-      <div>
+      <div className="grid grid-cols-4">
+        <div>
         <TextInput label="first name" placeholder="first name" />
+        </div>
+        <div>
+        <TextInput label="first name" placeholder="first name" />
+        </div>
+        <div>
+        <TextInput label="first name" placeholder="first name" />
+        </div>
+        <div>
+        <TextInput label="first name" placeholder="first name" />
+        </div>
+        <div>
+        <TextInput label="first name" placeholder="first name" />
+        </div>
       </div>
       <hr />
 

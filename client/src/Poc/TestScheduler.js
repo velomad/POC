@@ -294,45 +294,7 @@ export default function Demo() {
             currentViewName={currentViewName}
             onCurrentViewNameChange={currentViewNameChange}
           />
-          <EditingState
-            onCommitChanges={commitChanges}
-            addedAppointment={changeAppointment}
-            onAddedAppointmentChange={changeAddedAppointment}
-            appointmentChanges={AppointmentChanges}
-            onAppointmentChangesChange={changeAppointmentChanges}
-            editingAppointment={editingAppointment}
-            onEditingAppointmentChange={changeEditingAppointment}
-            preCommitChanges={preCommitChanges}
-          />
-          <WeekView
-            startDayHour={9}
-            endDayHour={19}
-            showAllDayTitle={false}
-            cellDuration={15}
-            // excludedDays={[0]}
-            displayName={"Weekly View"}
-            timeTableCellComponent={TimeTableCell}
-            dayScaleCellComponent={DayScaleCell}
-          />
 
-          <MonthView displayName={"Monthly View"} />
-          <Appointments appointmentComponent={Appointment} />
-
-          <Toolbar />
-          <DateNavigator />
-
-          <ViewSwitcher />
-          <EditRecurrenceMenu />
-          <ConfirmationDialog ignoreCancel={true} />
-          <DragDropProvider />
-
-          <AppointmentTooltip
-            showOpenButton
-            showDeleteButton
-            showCloseButton
-            contentComponent={Content}
-            onChange={currentViewNameChanges}
-          />
           <Scheduler
             data={data}
             height={560}
@@ -382,6 +344,7 @@ export default function Demo() {
               showDeleteButton
               showCloseButton
               contentComponent={Content}
+              onChange={currentViewNameChanges}
             />
             <TodayButton />
             <AppointmentForm
