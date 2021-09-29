@@ -3,6 +3,7 @@ import {
   ButtonControls,
   Dropdown,
   FileUpload,
+  FormikContainer,
   SearchableDropdown,
   TextInput,
 } from "../reusables";
@@ -44,6 +45,9 @@ const Components = () => {
 
       <div>
         <FileUpload documentName="photo" />
+      </div>
+      <div>
+        <FormikContainer />
       </div>
     </div>
   );
