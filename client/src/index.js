@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import './fonts/Montserrat-Regular.ttf'
-import './fonts/Montserrat-Bold.ttf'
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "./fonts/Montserrat-Regular.ttf";
+import "./fonts/Montserrat-Bold.ttf";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <div>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </div>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -19,7 +19,7 @@ const Dropdown = ({ label, options, searchable,  }) => {
         </div>
       ) : (
         <div className="w-60">
-          <Select options={options} isSearchable={true} isMulti={true} />
+          <Select options={options} isSearchable={false} isMulti={true} />
         </div>
       )}
     </>

@@ -182,21 +182,19 @@ export default function Demo() {
   const [visibleForm, setVisibleForm] = React.useState(true);
   const [disableAppointmentOnHoliday, setDisableAppointmentOnHoliday] =
     React.useState(false);
-    const [currentViewName, setCurrentViewName] = React.useState('Week')
+  const [currentViewName, setCurrentViewName] = React.useState("Week");
 
-
-console.log(data)
+  console.log(data);
 
   // const disableAppointmentOnHoliday = (restProps) => {
   //   console.log(restProps);
   //   setVisibleForm(false);
   // };
 
-// const allowDragAppointment = (props) =>{
-//  return <DragDropProvider.DraftAppointment {...props} />
-// }
-  
-  
+  // const allowDragAppointment = (props) =>{
+  //  return <DragDropProvider.DraftAppointment {...props} />
+  // }
+
   const ExternalViewSwitcher = ({ currentViewName, onChange, style }) => (
     <RadioGroup
       aria-label="Views"
@@ -325,7 +323,7 @@ console.log(data)
 
           <ViewSwitcher />
           <EditRecurrenceMenu />
-        <ConfirmationDialog ignoreCancel={true} 	/> 
+          <ConfirmationDialog ignoreCancel={true} />
           <DragDropProvider />
 
           <AppointmentTooltip
@@ -333,7 +331,6 @@ console.log(data)
             showDeleteButton
             showCloseButton
             contentComponent={Content}
-
             onChange={currentViewNameChanges}
           />
           <Scheduler

@@ -25,7 +25,7 @@ const FileUpload = ({ documentName }) => {
     }
 
     const options = {
-      maxSizeMB: 0.5,
+      maxSizeMB: 2,
       maxWidthOrHeight: 420,
       useWebWorker: true,
     };
